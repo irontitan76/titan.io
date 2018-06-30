@@ -1,0 +1,109 @@
+<head>
+  <title>Titan.io</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="Company: Fusion Industries, Category: Technology" />
+  <meta http-equiv="Cache-control" content="public">
+
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  <style>
+    body, html, #root {
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      min-height: 100vh;
+      padding: 0;
+    }
+
+    .loading {
+      background: 'blue';
+      font-family: 'Roboto';
+      font-size: 1rem;
+      font-weight: 900;
+      height: 100vh;
+      text-align: center;
+      width: 100vw;
+      z-Index: 1;
+    }
+    body .loading {
+      background-image: radial-gradient(circle at 50% 15%, #fff, #fff 30%, #ccc);
+      margin: 0px;
+    }
+    body .loading #root {
+      font-size: 0px;
+      height: 100%;
+      position: relative;
+      width: 100%;
+    }
+    body .loading #logo {
+      display: block;
+      height: 140px;
+      left: calc(50vw - 70px);
+      position: absolute;
+      top: calc(50vh - 70px);
+      width: 140px;
+    }
+    div.t {
+      background-color: #e2e2e2;
+      box-sizing: border-box;
+      display: inline-block;
+      height: 10vh;
+      margin: 0px;
+      width: 10vw;
+    }
+    div.t.on {
+      -moz-animation: pulse 3s infinite linear alternate;
+      -webkit-animation: pulse 3s infinite linear alternate;
+      animation: pulse 3s infinite linear alternate;
+    }
+    div.t.on:hover {
+      -webkit-animation: none;
+      background-color: #ccc;
+    }
+    @-webkit-keyframes pulse {
+      100% { background-color: #fff; }
+    }
+    @-moz-keyframes pulse {
+      100% { background-color: #fff; }
+    }
+    @keyframes pulse {
+      100% { background-color: #fff; }
+    }
+  </style>
+</head>
+
+<body>
+  <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+  <div class="loading" id="root">
+    <svg id="logo" version="1.1" viewBox="0 0 140 140">
+      <path d="m119.5 20.501l-18.507 18.508c4.909 4.909 8.87 10.764 10.68 16.364 11.023 34.095-18.344 65.231-52.137 57.447-14.541-3.35-29.011-17.822-32.357-32.364-6.743-29.305 15.782-55.271 44.118-54.459l22.016-22.017c-7.213-2.547-14.967-3.95-23.045-3.98-38.25-0.142-69.715 30.738-70.257 68.984-0.555 39.14 31.02 71.04 70.038 71.015 38.757-0.024 69.955-31.243 69.955-69.999 0-19.331-7.836-36.831-20.504-49.499z" fill="#015085"/>
+      <path d="m27.174 80.458c3.3458 14.542 17.815 29.015 32.355 32.364 33.79 7.784 63.157-23.352 52.134-57.447-1.8109-5.6-5.7717-11.456-10.679-16.364l-30.988 30.99 30.088 1e-3c0 16.761-13.703 30.321-30.517 30.088-16.136-0.224-29.335-13.343-29.654-29.478-0.16899-8.55 3.2288-16.307 8.8055-21.886l-0.076996-0.077 22.647-22.65c-28.332-0.812-50.856 25.154-44.114 54.459z" fill="#333"/>
+    </svg>
+    <script>
+      var c = document.getElementById('root');
+      for (var i = 0; i < 100; i += 1) {
+        c.insertAdjacentHTML('beforeend', '<div class="t off"></div>');
+      }
+
+      var timer = setInterval(function () {
+        var again = false;
+        if (document.body.classList.contains('loading')) {
+          var ts = c.querySelectorAll('div.t.off');
+          var index = Math.floor(Math.random() * ts.length);
+          ts[index].classList.remove('off');
+          ts[index].classList.add('on');
+          if (ts.length > 1) {
+            again = true;
+          }
+        }
+        if (! again) {
+          clearInterval(timer);
+        }
+      }, 100)
+    </script>
+  </div>
+</body>

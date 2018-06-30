@@ -1,0 +1,7 @@
+{
+  "galaxy.meteor.com": {
+     "env": {
+       "MONGO_URL": "mongodb://admin:Proverbs4%3A23-27@ds129821.mlab.com:29821/titan-io"
+     }
+   }
+}
